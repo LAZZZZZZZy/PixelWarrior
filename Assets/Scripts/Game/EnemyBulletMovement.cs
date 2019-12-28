@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMovement : MonoBehaviour
+public class EnemyBulletMovement : MonoBehaviour
 {
     private float speed;
     private Vector2 direction;
@@ -25,17 +25,9 @@ public class BulletMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Equals("Monster"))
+        if (collision.gameObject.tag.Equals("Player"))
         {
-            Debug.Log("des");
-            if (collision.gameObject.GetComponent<MonsterMeleeBehavior>() != null)
-            {
-                collision.gameObject.GetComponent<MonsterMeleeBehavior>().ReduceHp(10);
-            }
-            else if (collision.gameObject.GetComponent<MonsterRangeBehavior>() != null)
-            {
-                collision.gameObject.GetComponent<MonsterRangeBehavior>().ReduceHp(10);
-            }
+            collision.gameObject.GetComponent<PlayerBattleController>().ReduceHp(10);
             Destroy(this.gameObject);
         }
     }

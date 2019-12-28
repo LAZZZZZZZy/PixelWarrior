@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerBattleController : MonoBehaviour
 {
+    public Player player;
     private int weapon_speed;
     private Vector2 weapon_direction;
     private float weapon_angle;
     private int weapon_count;
     private bool fired;
     public GameObject weapon;
+    public Vector3 offset = new Vector3(0, 0.5f, 0);
+    public float speed;
+    public Slider HP_slider;
 
     public int Weapon_speed { get => weapon_speed; set => weapon_speed = value; }
     public Vector2 Weapon_direction { get => weapon_direction; set => weapon_direction = value; }
@@ -19,11 +24,22 @@ public class PlayerBattleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //initialize the player
+        player = ProjectManager.Instance.player;
+       // Resources.Load<Sprite>("")
         fired = false;
         weapon_speed = 20;
         weapon_count = weapon_speed;
 
         //DontDestroyOnLoad(this);
+    }
+
+    private void Update()
+    {
+        if (player.Hp == 0)
+        {
+            //Debug.Log("died");
+        }
     }
 
     // Update is called once per frame
@@ -41,5 +57,13 @@ public class PlayerBattleController : MonoBehaviour
 
         if (weapon_count < weapon_speed)
             weapon_count++;
+    }
+
+    public void ReduceHp(int val)
+    {
+       // Debug.Log(HP_slider.value);
+        player.Hp -= val;
+        HP_slider.value = player.Hp / 100;
+        HP_slider.GetComponentInChildren<Text>().text = player.Hp.ToString();
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class JoyStickAttack : JoyStick
+public class JoyStickAttack : EventTrigger
 {
     private GameObject _joyStick;
     private Vector3 _joyStickPosition;
@@ -55,8 +55,7 @@ public class JoyStickAttack : JoyStick
 
     public override void OnEndDrag(PointerEventData data)
     {
-        _player_rigid.velocity = new Vector2(0, 0);
-        _player.transform.position = _joyStickPosition;
+        _joyStick.transform.position = _joyStickPosition;
         _playerBattle.Fired = false;
     }
    
