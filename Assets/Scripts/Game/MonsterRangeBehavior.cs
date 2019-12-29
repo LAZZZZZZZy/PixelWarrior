@@ -11,8 +11,7 @@ public class MonsterRangeBehavior : MonoBehaviour
     public GameObject HP_slider;
     private Slider hp;
     private Vector3 offset = new Vector3(0, 0.5f, 0);
-    private int weapon_count;
-    public GameObject bullet;
+
     private float hp_multiple;
     // Start is called before the first frame update
 
@@ -29,16 +28,7 @@ public class MonsterRangeBehavior : MonoBehaviour
     {
         // hp条跟随
         HP_slider.transform.position = Camera.main.WorldToScreenPoint(transform.position + offset);
-        // 追踪player
-        if (weapon_count > monster.AttackSpeed * 60  && Vector3.Distance(target.transform.position,transform.position) <= 5f)
-        {
-            float angle = Vector2.SignedAngle(new Vector2(target.transform.position.x, 0), new Vector2(target.transform.position.x, target.transform.position.y) - new Vector2(transform.position.x, transform.position.y));
-            Vector2 direction = target.transform.position - transform.position;
-            GameObject atk = GameObject.Instantiate(bullet, (Vector2)transform.position + direction.normalized, Quaternion.Euler(0, 0, angle), null);
-            atk.GetComponent<EnemyBulletMovement>().Direction = direction.normalized;
-            weapon_count = 0;
-        }
-        weapon_count++;
+
         
     }
 
@@ -61,6 +51,10 @@ public class MonsterRangeBehavior : MonoBehaviour
         Debug.Log(monster.Hp);
         monster.Hp -= val;
         hp.value = (monster.Hp * hp_multiple )/ 100;
-       // HP_slider.GetComponentInChildren<Text>().text = monster.Hp.ToString();
+        if (monster.Hp <= 0)
+        {
+            Destroy(this);
+        }
+        // HP_slider.GetComponentInChildren<Text>().text = monster.Hp.ToString();
     }
 }

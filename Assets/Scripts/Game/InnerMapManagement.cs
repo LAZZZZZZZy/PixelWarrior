@@ -40,19 +40,10 @@ public class InnerMapManagement : MonoBehaviour
             GameObject hp = GameObject.Instantiate(HP_slider, v, Quaternion.identity, canvas.transform);
             int r = Random.Range(0, ProjectManager.Instance.monsters.Count);
             Monster m_temp = monsters[r];
-            if (m_temp.Monster_type == Monster.MonsterType.Melee)
-            {
-                MonsterMeleeBehavior melee = obj.AddComponent<MonsterMeleeBehavior>();
-                melee.monster = m_temp;
-                melee.HP_slider = hp;
-            }
-            else if (m_temp.Monster_type == Monster.MonsterType.Range)
-            {
-                MonsterRangeBehavior range = obj.AddComponent<MonsterRangeBehavior>();
-                range.monster = m_temp;
-                range.HP_slider = hp;
-                range.bullet = bullet;
-            }
+            MonsterBehavior mb = obj.GetComponent<MonsterBehavior>();
+            mb.HP_slider = hp;
+            mb.monster = m_temp;
+            mb.bullet = bullet;
         }
     }
 

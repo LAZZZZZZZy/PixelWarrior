@@ -997,6 +997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ae4be7c807c034a859085b90fd662c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fPlayer: {fileID: 0}
+  fMonster: {fileID: 4900000, guid: 5cdecff8db259ef419f172dade9e68f4, type: 3}
 --- !u!4 &1855501159
 Transform:
   m_ObjectHideFlags: 0

@@ -65,5 +65,10 @@ public class PlayerBattleController : MonoBehaviour
         player.Hp -= val;
         HP_slider.value = player.Hp / 100;
         HP_slider.GetComponentInChildren<Text>().text = player.Hp.ToString();
+        for (int i = 0; i < 5; i++)
+        {
+            
+
+        }
     }
 }

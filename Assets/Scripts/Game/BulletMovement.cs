@@ -28,14 +28,7 @@ public class BulletMovement : MonoBehaviour
         if (collision.gameObject.tag.Equals("Monster"))
         {
             Debug.Log("des");
-            if (collision.gameObject.GetComponent<MonsterMeleeBehavior>() != null)
-            {
-                collision.gameObject.GetComponent<MonsterMeleeBehavior>().ReduceHp(10);
-            }
-            else if (collision.gameObject.GetComponent<MonsterRangeBehavior>() != null)
-            {
-                collision.gameObject.GetComponent<MonsterRangeBehavior>().ReduceHp(10);
-            }
+            collision.gameObject.GetComponent<MonsterBehavior>().ReduceHp(10);
             Destroy(this.gameObject);
         }
     }
