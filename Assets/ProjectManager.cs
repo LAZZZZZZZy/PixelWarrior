@@ -52,7 +52,6 @@ public class ProjectManager : MonoBehaviour
         for (int i = 1; i < records.Length; i++)
         {
             string[] words = records[i].Split(fieldSeperator);
-            Debug.Log(words[0]);
             int id = int.Parse(words[0]);
             string name = words[1];
             float hp =float.Parse(words[2]);
@@ -86,6 +85,7 @@ public class ProjectManager : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene("Battle");
+        SceneName.nextSceneName = "Battle";
+        SceneManager.LoadScene("Loading");
     }
 }

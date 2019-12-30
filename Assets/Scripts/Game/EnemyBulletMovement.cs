@@ -6,6 +6,7 @@ public class EnemyBulletMovement : MonoBehaviour
 {
     private float speed;
     private Vector2 direction;
+    public float damage;
 
     public float Speed { get => speed; set => speed = value; }
     public Vector2 Direction { get => direction; set => direction = value; }
@@ -27,7 +28,7 @@ public class EnemyBulletMovement : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            collision.gameObject.GetComponent<PlayerBattleController>().ReduceHp(10);
+            collision.gameObject.GetComponent<PlayerBattleController>().ReduceHp(damage);
             Destroy(this.gameObject);
         }
     }
