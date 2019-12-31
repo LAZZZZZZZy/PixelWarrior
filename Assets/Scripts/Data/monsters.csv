@@ -1,6 +1,6 @@
-ID,Name,HP,ATK,DEF,SPEED,SIZE,DROP,TYPE,ATKSPD,SPRITE
-0,Wolf,50,10,0,3,0.8,null,Melee,1,Monsters/wolf
-1,Goblin,25,5,0,2,0.6,null,Range,0.8,Monsters/goblin
-2,Orc,75,8,1,3,1,null,Melee,0.6,Monsters/orc
-3,Giant,100,12,3,1,1.2,null,Melee,0.2,Monsters/giant
-4,Elf,20,7,0,6,0.5,null,Range,1,Monsters/elf
+ID,Name,HP,ATK,DEF,SPEED,SIZE,DROP,TYPE,ATKSPD,SCORE,SPRITE
+0,Wolf,30,10,0,3,0.8,null,Melee,1,5,Monsters/wolf
+1,Goblin,25,5,0,2,0.6,null,Range,0.8,8,Monsters/goblin
+2,Orc,75,8,1,3,1,null,Melee,0.6,15,Monsters/orc
+3,Giant,100,12,3,1,1.2,null,Melee,0.2,20,Monsters/giant
+4,Elf,20,7,0,6,0.5,null,Range,1,13,Monsters/elf

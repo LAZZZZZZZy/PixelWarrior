@@ -25,9 +25,6 @@ public class PlayerBattleController : MonoBehaviour
     private SpriteRenderer renderer;
     private float gapTime;
     public float flash_duration;
-    //setting
-    private bool isGamePause = true;
-    private float Timer;
 
     public int Weapon_speed { get => weapon_speed; set => weapon_speed = value; }
     public Vector2 Weapon_direction { get => weapon_direction; set => weapon_direction = value; }
@@ -52,16 +49,7 @@ public class PlayerBattleController : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().isLoaded && isGamePause)
-        {
-            Pause();
-        }
-        else
-        {
-            Resume();
-        }
-
-        if (player.Hp == 0)
+        if (player.Hp <= 0)
         {
             //Debug.Log("died");
         }
@@ -113,23 +101,5 @@ public class PlayerBattleController : MonoBehaviour
         }
 
         return false;
-    }
-
-    public void Pause()
-    {
-        Timer += 0.1f;
-        Time.timeScale = 0f;
-        isGamePause = true;
-        Debug.Log(Timer);
-        if (Timer >= 3f)
-        {
-            isGamePause = false;
-        }
-    }
-
-    public void Resume()
-    {
-        Time.timeScale = 1f;
-        isGamePause = false;
     }
 }

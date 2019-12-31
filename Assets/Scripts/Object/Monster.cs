@@ -15,8 +15,9 @@ public class Monster
     private float size;//scale
     private List<Item> drops;
     private string sprite;
+    private int score;
 
-    public Monster(int id, string name,float hp, float attack, float defense, float speed, float size, List<Item> drops, MonsterType monster_type, float attackSpeed, string sprite)
+    public Monster(int id, string name,float hp, float attack, float defense, float speed, float size, List<Item> drops, MonsterType monster_type, float attackSpeed, int score, string sprite)
     {
         Hp = hp;
         Attack = attack;
@@ -29,6 +30,7 @@ public class Monster
         AttackSpeed = attackSpeed;
         Id = id;
         Name = name;
+        Score = score;
     }
 
     public float Hp { get => hp; set => hp = value; }
@@ -42,6 +44,7 @@ public class Monster
     public float AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
     public int Id { get => id; set => id = value; }
     public string Name { get => name; set => name = value; }
+    public int Score { get => score; set => score = value; }
 
     public enum MonsterType
     {

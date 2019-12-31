@@ -25,6 +25,7 @@ public class ProjectManager : MonoBehaviour
     private char lineSeperater = '\n'; // It defines line seperate character
     private char fieldSeperator = ','; // It defines field seperate chracter
 
+
     private void Awake()
     {
         monsters = new List<Monster>();
@@ -42,7 +43,6 @@ public class ProjectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void parseMonster()
@@ -72,9 +72,10 @@ public class ProjectManager : MonoBehaviour
             }
 
             float atkSpd = float.Parse(words[9]);
-            string sprite = words[10];
+            int score = int.Parse(words[10]);
+            string sprite = words[11];
 
-            monsters.Add(new Monster(id, name, hp, atk, def, spd, size, null, type, atkSpd, sprite));
+            monsters.Add(new Monster(id, name, hp, atk, def, spd, size, null, type, atkSpd, score, sprite));
         }
     }
 
