@@ -1,5 +1,5 @@
 # DEMO
-![Hnet-image(1)](https://user-images.githubusercontent.com/43282464/71638882-3a342a80-2c29-11ea-8c95-80a65661100c.gif)
+![Hnet-image(2)](https://user-images.githubusercontent.com/43282464/71638916-f2fa6980-2c29-11ea-9cdd-dace9ae9199c.gif)
 
 # MobileJoyStick
 This project creates a virtual Joystick for the mobile platform since Unity3D supports cross-platform transformation so that it can run in both IOS and Android systems.
