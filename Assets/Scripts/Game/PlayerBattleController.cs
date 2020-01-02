@@ -1,15 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerBattleController : MonoBehaviour
 {
+    //obj class
+    public Player player;
+    //battle
     private int weapon_speed;
     private Vector2 weapon_direction;
     private float weapon_angle;
     private int weapon_count;
     private bool fired;
     public GameObject weapon;
+    public float speed;
+    //hp
+    public Vector3 offset = new Vector3(0, 0.5f, 0);
+    public Slider HP_slider;
+    private float hp_multiple;
+    //falsh
+    bool isInvincible = false;
+    private SpriteRenderer renderer;
+    private float gapTime;
+    public float flash_duration;
 
     public int Weapon_speed { get => weapon_speed; set => weapon_speed = value; }
     public Vector2 Weapon_direction { get => weapon_direction; set => weapon_direction = value; }
@@ -19,11 +34,40 @@ public class PlayerBattleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //initialize the player
+        player = ProjectManager.Instance.player;
+       // Resources.Load<Sprite>("")
         fired = false;
         weapon_speed = 20;
         weapon_count = weapon_speed;
-
+        //flash
+        renderer = GetComponent<SpriteRenderer>();
+        //hp
+        hp_multiple = 100f / player.Hp;
         //DontDestroyOnLoad(this);
+    }
+
+    private void Update()
+    {
+        if (player.Hp <= 0)
+        {
+            //Debug.Log("died");
+        }
+
+        if (isInvincible)
+        {
+            gapTime += Time.deltaTime;
+            if (gapTime < flash_duration)
+            {
+                float remainder = gapTime % 0.3f;
+                renderer.enabled = remainder >= 0.15f;
+            }
+            else
+            {
+                renderer.enabled = true;
+                isInvincible = false;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -41,5 +85,21 @@ public class PlayerBattleController : MonoBehaviour
 
         if (weapon_count < weapon_speed)
             weapon_count++;
+    }
+
+    public bool ReduceHp(float val)
+    {
+        // Debug.Log(HP_slider.value);
+        if (isInvincible == false)
+        {
+            player.Hp -= val;
+            HP_slider.value = (player.Hp * hp_multiple) / 100f;
+            HP_slider.GetComponentInChildren<Text>().text = player.Hp.ToString();
+            isInvincible = true;
+            gapTime = 0;
+            return true;
+        }
+
+        return false;
     }
 }

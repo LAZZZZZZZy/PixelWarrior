@@ -28,7 +28,7 @@ public class BulletMovement : MonoBehaviour
         if (collision.gameObject.tag.Equals("Monster"))
         {
             Debug.Log("des");
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<MonsterBehavior>().ReduceHp(10);
             Destroy(this.gameObject);
         }
     }

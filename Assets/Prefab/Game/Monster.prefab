@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8035376632613943130}
   - component: {fileID: 3105219774944744379}
-  - component: {fileID: 3887293771543579939}
   - component: {fileID: 8321527590033290226}
   - component: {fileID: 5773997931610003545}
+  - component: {fileID: -3471569537717046605}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Monster
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.03127098, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -83,22 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3887293771543579939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143761282118597779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9979e8c96e59570409798266f25c82a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 4233468343938516016, guid: 54d15575370e47040b2c51f084e35ee4, type: 3}
-  HP_slider: {fileID: 0}
-  offset: {x: 0, y: 0.5, z: 0}
-  speed: 3
 --- !u!61 &8321527590033290226
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,3 +130,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-3471569537717046605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143761282118597779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e6fa3832178754fbf6bc87901dcd9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 4233468343938516016, guid: 54d15575370e47040b2c51f084e35ee4, type: 3}
+  HP_slider: {fileID: 6136578727145204067, guid: ad2c2bf9b9ccfc042aecc0246a39cd53,
+    type: 3}
+  bullet: {fileID: 3924318491102849225, guid: c67e2c547a4274f47a8e0b859f6a75f9, type: 3}

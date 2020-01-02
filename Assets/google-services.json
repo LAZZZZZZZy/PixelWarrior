@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "916321668835",
+    "firebase_url": "https://pixel-warrior.firebaseio.com",
+    "project_id": "pixel-warrior",
+    "storage_bucket": "pixel-warrior.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916321668835:android:d31faf04d62e5d7aabffd6",
+        "android_client_info": {
+          "package_name": "com.Jiayan.PixelWarrior"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916321668835-72col8g3s64vqi2b3nc4e2588rev0rk0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOkuZcWJqtz0h_u2uIqLnkwllfj9ppaSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916321668835-72col8g3s64vqi2b3nc4e2588rev0rk0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
